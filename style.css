@@ -1,0 +1,412 @@
+/* Reset de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f4f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background: #222;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #61dafb;
+}
+
+.section-hero {
+  background: linear-gradient(135deg, #61dafb 0%, #282c34 100%);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.section-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.section-hero p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background: #61dafb;
+  color: #222;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #21a1f1;
+}
+
+.section {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.section h2 {
+  margin-bottom: 20px;
+  border-bottom: 3px solid #61dafb;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.section ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: white;
+  margin-top: 40px;
+}
+html {
+  scroll-behavior: smooth;
+}
+header {
+  position: sticky;
+  top: 0;
+  background-color: #222;
+  padding: 5px 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative; /* ajouter ça */
+}
+/* --- Styles pour la frise chronologique animée améliorée --- */
+
+.timeline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  position: relative;
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  right: 30px;
+  height: 6px;
+  background: linear-gradient(90deg, #61dafb, #21a1f1);
+  border-radius: 3px;
+  transform: translateY(-50%);
+  z-index: 0;
+  box-shadow: 0 0 8px rgba(33, 161, 241, 0.5);
+}
+
+.event {
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  width: 160px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.event:hover,
+.event:focus {
+  transform: scale(1.1);
+  outline: none;
+}
+
+.circle {
+  width: 26px;
+  height: 26px;
+  background: #0077cc;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  box-shadow: 0 4px 8px rgba(0, 119, 204, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.event:hover .circle,
+.event:focus .circle {
+  background: #21a1f1;
+  box-shadow: 0 6px 12px rgba(33, 161, 241, 0.7);
+  animation: pulse 1.5s infinite;
+}
+
+/* Animation pulse douce */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 6px 12px rgba(33, 161, 241, 0.7);
+  }
+  50% {
+    box-shadow: 0 12px 24px rgba(33, 161, 241, 0.4);
+  }
+}
+
+.content {
+  display: none;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  font-size: 0.9rem;
+  color: #222;
+  text-align: left;
+  z-index: 10;
+  pointer-events: none; /* Pour ne pas gêner le hover */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Petite flèche en bas du tooltip */
+.content::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+
+.event:hover .content,
+.event:focus .content {
+  display: block;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+  .timeline {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+
+  .timeline::before {
+    top: auto;
+    bottom: 20px;
+    left: 50%;
+    width: 6px;
+    height: 80%;
+    transform: translateX(-50%);
+  }
+
+  .event {
+    width: 90%;
+  }
+
+  .content {
+    top: auto;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.adresse-section {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+.adresse-section iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: brightness(50%) blur(1.5px);
+  z-index: 1;
+  pointer-events: none; /* empêche interaction avec la carte */
+}
+
+.adresse-text {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.adresse-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.adresse-text p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+/* Reset basique */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: #222;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Nom "scramble-name" (tu peux styliser à ta guise) */
+#scramble-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #61dafb;
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+/* Menu desktop */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: #61dafb;
+  color: #222;
+  outline: none;
+  box-shadow: 0 0 8px #61dafb88;
+}
+
+/* Bouton hamburger (menu toggle) */
+.menu-toggle {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none; /* caché par défaut */
+}
+
+/* Menu mobile (hidden by default) */
+.menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #222;
+  list-style: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  width: 180px;
+  padding: 10px 0;
+  flex-direction: column;
+  z-index: 1100;
+}
+
+.menu li {
+  margin: 0;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
+}
+
+.menu li a:hover,
+.menu li a:focus {
+  background-color: #61dafb;
+  color: #222;
+  outline: none;
+}
+
+/* Afficher le bouton hamburger et cacher menu desktop en petit écran */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+#scramble-name {
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: white; /* couleur claire sur fond foncé */
+  user-select: none;
+  white-space: nowrap;
+  cursor: default;
+  margin-right: auto;
+  padding-left: 20px; /* un peu d'espace à gauche */
+  line-height: 1.2;
+}
+
+
+
+

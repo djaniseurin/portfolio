@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio Djani Seurin</title>
+
+  <!-- Google Fonts Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Ton fichier CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* --- Styles pour le texte animé en haut à gauche --- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      height: 60px;
+    }
+
+    #scramble-name {
+      font-weight: 600;
+      font-size: 1.6rem;
+      color: black;
+      user-select: none;
+      white-space: nowrap;
+      cursor: default;
+      margin-right: auto;
+    }
+
+    #scramble-name .blue {
+      color: #0077cc; /* bleu foncé */
+    }
+
+    /* Menu classique desktop */
+    nav {
+      /* on le cache, on utilisera menu toggle */
+      display: none;
+    }
+
+    /* Styles pour le menu burger et responsive */
+    .menu-toggle {
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #0077cc;
+      display: block;
+      margin-left: auto;
+    }
+
+    ul.menu {
+      list-style: none;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      border-radius: 5px;
+      padding: 10px 15px;
+      display: none;
+      flex-direction: column;
+      width: 180px;
+      z-index: 1000;
+    }
+
+    ul.menu.show {
+      display: flex;
+    }
+
+    ul.menu li {
+      margin: 10px 0;
+    }
+
+    ul.menu li a {
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    ul.menu li a:hover {
+      color: #005999;
+    }
+
+    /* Affichage menu desktop (grand écran) */
+    @media(min-width: 769px) {
+      .menu-toggle {
+        display: none;
+      }
+
+      nav {
+        display: block;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin-left: auto;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #0077cc;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: #005999;
+      }
+    }
+  </style>
+</head>
+
+<body>
+ <header>
+  <div id="scramble-name">Mon Nom</div>
+
+  <nav>
+    <ul>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#parcours">Parcours</a></li> <!-- ajouté -->
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <button class="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+
+  <ul class="menu" aria-label="Menu mobile">
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#parcours">Parcours</a></li> <!-- ajouté -->
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</header>
+
+
+
+  <main>
+    <section id="accueil" class="section-hero" data-aos="fade-up">
+      <h1>Bonjour, je suis Djani Seurin</h1>
+      <p>Recherche une alternance en BTS CIEL option A à l'INSEEC Bordeaux</p>
+      <a href="#contact" class="btn">Me contacter</a>
+    </section>
+
+    <section id="apropos" class="section" data-aos="fade-up">
+      <h2>À propos</h2>
+      <p>
+        Passionné par l'informatique, je m'efforce de créer des expériences numériques à la fois esthétiques, intuitives et performantes.
+        Curieux et rigoureux, j’aime relever les défis techniques tout en privilégiant un design soigné qui répond aux besoins des utilisateurs.<br/><br/>
+        Actuellement en formation en BTS Cybersécurité, Informatique et Réseaux, je développe mes compétences dans la programmation, la sécurité informatique et la gestion de projets digitaux.
+        Ce portfolio reflète mon savoir-faire, mes projets réalisés ainsi que mon évolution constante dans le domaine du web.<br/><br/>
+        Je suis à la recherche d’une alternance pour mettre en pratique mes connaissances dans un environnement professionnel stimulant, et contribuer activement à des projets innovants.<br/><br/>
+        N’hésitez pas à me contacter pour échanger ou collaborer !
+      </p>
+    </section>
+
+    <section id="frise-etudes" class="section" data-aos="fade-up">
+  <h2>Mon Parcours d'études</h2>
+  <div class="timeline">
+    <div class="event" tabindex="0" aria-describedby="desc1">
+      <div class="circle"></div>
+      <div class="date">2021</div>
+      <div class="content" id="desc1" role="region" aria-live="polite">
+        <h3>Baccalauréat STMG</h3>
+        <p>Obtention du bac STMG avec mention bien.</p>
+      </div>
+    </div>
+    <div class="event" tabindex="0" aria-describedby="desc2">
+      <div class="circle"></div>
+      <div class="date">2022-2024</div>
+      <div class="content" id="desc2" role="region" aria-live="polite">
+        <h3>BTS Comptabilité et Gestion</h3>
+        <p>Diplôme Non Obtenu</p>
+      </div>
+    </div>
+    <div class="event" tabindex="0" aria-describedby="desc3">
+      <div class="circle"></div>
+      <div class="date">2025</div>
+      <div class="content" id="desc3" role="region" aria-live="polite">
+        <h3>Recherche d'alternance</h3>
+        <p>Actuellement en quête d’une alternance en BTS CIEL option A.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="competences" class="section" data-aos="fade-up">
+      <h2>Compétences Techniques</h2>
+      <ul>
+        <li>Langages de programmation : HTML, CSS, JavaScript, Python</li>
+        <li>Frameworks / Bibliothèques : React, Vue.js</li>
+        <li>Outils & logiciels : Git / GitHub, VS Code</li>
+        <li>Bases de données : MySQL</li>
+        <li>Cybersécurité : tests d’intrusion</li>
+      </ul>
+    </section>
+
+    <section id="competences-professionnel" class="section" data-aos="fade-up">
+      <h2>Compétences Professionnelles</h2>
+      <ul>
+        <li>Travail en équipe</li>
+        <li>Gestion de projet</li>
+        <li>Résolution de problèmes</li>
+        <li>Adaptabilité et apprentissage rapide</li>
+        <li>Communication technique</li>
+      </ul>
+    </section>
+
+    <section id="projets" class="section" data-aos="fade-up">
+      <h2>Projets</h2>
+      <ul>
+        <li>Mini-site Portfolio - ce site !</li>
+        <li>Jeu simple en JavaScript</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p>Vous pouvez me joindre sur mon adresse mail : <a href="mailto:seurindjani00@gmail.com">seurindjani00@gmail.com</a></p>
+      <p>Mon profil LinkedIn : <a href="https://www.linkedin.com/in/djani-seurin-291a8833b" target="_blank" rel="noopener noreferrer">Djani Seurin</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Djani Seurin - Portfolio</p>
+  </footer>
+
+  <!-- Scripts AOS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+    });
+  </script>
+
+  <script>
+    // Animation texte "scramble" en haut à gauche
+    function scrambleText(elementId, fullText, highlightText, interval = 40) {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*';
+      const el = document.getElementById(elementId);
+      let iteration = 0;
+
+      const scrambleInterval = setInterval(() => {
+        let displayedText = '';
+
+        for (let i = 0; i < fullText.length; i++) {
+          if (i < iteration) {
+            if (i >= fullText.length - highlightText.length) {
+              displayedText += `<span class="blue">${fullText[i]}</span>`;
+            } else {
+              displayedText += fullText[i];
+            }
+          } else if (fullText[i] === ' ') {
+            displayedText += ' ';
+          } else {
+            displayedText += chars.charAt(Math.floor(Math.random() * chars.length));
+          }
+        }
+
+        el.innerHTML = displayedText;
+
+        iteration += 1 / 3;
+
+        if (iteration >= fullText.length) {
+          clearInterval(scrambleInterval);
+          const normalText = fullText.slice(0, fullText.length - highlightText.length);
+          const blueText = fullText.slice(fullText.length - highlightText.length);
+          el.innerHTML = normalText + `<span class="blue">${blueText}</span>`;
+        }
+      }, interval);
+    }
+
+    scrambleText('scramble-name', 'Salut, je suis Djani', 'Djani', 40);
+
+    // Menu toggle (burger)
+    const toggleButton = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    toggleButton.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+
+    // Fermer le menu au clic sur un lien
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('show');
+      });
+    });
+  </script>
+  <section id="contact" class="section" data-aos="fade-up" style="position: relative; height: 400px;">
+
+  <h2>Mon adresse</h2>
+  
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5655.041446709244!2d-0.5150552224417934!3d44.87205097107039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd552f39447f90cd%3A0xea72bba86e25cc20!2s8%20Rue%20Elis%C3%A9e%20Reclus%2C%2033310%20Lormont!5e0!3m2!1sfr!2sfr!4v1750524970676!5m2!1sfr!2sfr" 
+    width="100%" 
+    height="100%" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+
+  <div style="position:absolute; bottom:10px; left:10px; background: rgba(255,255,255,0.8); padding:10px; border-radius:8px;">
+    <p>Adresse : 8 rue Elisée Reclus, 33310 Lormont, France</p>
+  </div>
+  
+</section>
+</body>
+</html>
+
+
+
+
+
